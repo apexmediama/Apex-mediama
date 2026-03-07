@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apex Media — #1 HVAC Lead Generation Agency in Massachusetts</title>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;0,900;1,700&display=swap" rel="stylesheet">
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1300463091913590');fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1300463091913590&ev=PageView&noscript=1"/></noscript>
+<style>
+:root {
+  --ice: #E8F4FD;
+  --ice2: #D0E8F7;
+  --cyan: #00B4D8;
+  --cyan2: #0096C7;
+  --cyan3: rgba(0,180,216,0.12);
+  --deep: #023E8A;
+  --deep2: #03045E;
+  --fire: #FF6B35;
+  --fire2: #FF8C55;
+  --white: #F0F8FF;
+  --white2: rgba(240,248,255,0.7);
+  --white3: rgba(240,248,255,0.3);
+  --dark: #020B18;
+  --dark2: #041220;
+  --dark3: #071828;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--dark);color:var(--white);font-family:'Nunito Sans',sans-serif;overflow-x:hidden;}
+.particles{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+.particle{position:absolute;width:4px;height:4px;background:var(--cyan);border-radius:50%;opacity:0;animation:float linear infinite;}
+.particle:nth-child(1){left:10%;animation-duration:12s;animation-delay:0s;width:3px;height:3px;}
+.particle:nth-child(2){left:20%;animation-duration:15s;animation-delay:2s;width:5px;height:5px;background:var(--ice2);}
+.particle:nth-child(3){left:35%;animation-duration:10s;animation-delay:4s;}
+.particle:nth-child(4){left:50%;animation-duration:14s;animation-delay:1s;width:2px;height:2px;}
+.particle:nth-child(5){left:65%;animation-duration:11s;animation-delay:3s;background:var(--ice);}
+.particle:nth-child(6){left:80%;animation-duration:13s;animation-delay:5s;width:6px;height:6px;}
+.particle:nth-child(7){left:90%;animation-duration:9s;animation-delay:2s;width:3px;height:3px;}
+.particle:nth-child(8){left:45%;animation-duration:16s;animation-delay:6s;background:white;}
+@keyframes float{0%{transform:translateY(100vh) rotate(0deg);opacity:0;}10%{opacity:0.6;}90%{opacity:0.3;}100%{transform:translateY(-100px) rotate(360deg);opacity:0;}}
+.frost-bg{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 70% 50% at 0% 0%,rgba(0,180,216,0.08) 0%,transparent 60%),
+    radial-gradient(ellipse 50% 60% at 100% 100%,rgba(2,62,138,0.1) 0%,transparent 50%),
+    radial-gradient(ellipse 40% 40% at 50% 50%,rgba(255,107,53,0.03) 0%,transparent 60%);}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:18px 60px;background:rgba(2,11,24,0.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,180,216,0.15);}
+.nav-logo{font-family:'Rajdhani',sans-serif;font-size:26px;font-weight:700;letter-spacing:4px;color:var(--cyan);}
+.nav-logo span{color:var(--white);}
+.nav-links{display:flex;gap:32px;align-items:center;}
+.nav-links a{color:var(--white2);text-decoration:none;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;transition:color 0.2s;}
+.nav-links a:hover{color:var(--cyan);}
+.nav-cta{background:linear-gradient(135deg,var(--cyan),var(--deep))!important;color:var(--white)!important;padding:10px 28px!important;font-weight:800!important;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);border:none!important;}
+</style>
+</head>
+<body>
+<div class="particles">
+  <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+  <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+  <div class="particle"></div><div class="particle"></div>
+</div>
+<div class="frost-bg"></div>
+<a href="https://wa.me/14073051429" class="whatsapp-btn" target="_blank">
+  <span class="whatsapp-tooltip">Chat with us</span>💬
+</a>
+<nav>
+  <div class="nav-logo">APEX<span>MEDIA</span></div>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#process">How It Works</a>
+    <a href="#packages">Pricing</a>
+    <a href="#contact" class="nav-cta">Free Strategy Call</a>
+  </div>
+</nav>
+<section class="hero">
+  <div class="temp-display"><span class="temp-num">72°</span></div>
+  <div class="snowflake">❄</div>
+  <div class="hero-content">
+    <div class="hero-badge"><div class="badge-dot"></div>Massachusetts's #1 HVAC Lead Generation Agency</div>
+    <h1>FULL CALENDAR.<br><span class="cyan">ALL YEAR.</span><br><span class="outline">YOUR HVAC.</span></h1>
+    <p class="hero-sub">We bring <strong>10–20 exclusive HVAC leads</strong> to Massachusetts contractors every month.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">❄️ Get My Free Strategy Call →</a>
+      <a href="#packages" class="btn-secondary">See Pricing ↓</a>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="footer-logo">APEX<span>MEDIA</span></div>
+  <p>© 2025 Apex Media — Massachusetts · Exclusive HVAC Lead Generation</p>
+</footer>
+</body>
+</html>
