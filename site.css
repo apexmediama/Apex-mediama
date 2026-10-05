@@ -416,7 +416,7 @@ p { text-wrap: pretty; }
 .trade--more { background: var(--accent-soft); align-content: space-between; }
 .trade--more p { font-size: .9375rem; color: var(--text-2); }
 .trade--more a { font-weight: 600; font-size: .9375rem; color: var(--text); text-decoration: none; }
-.trade--more a::after { content: " 92"; }
+.trade--more a::after { content: " \2192"; }
 
 /* 11. Pricing --------------------------------------------------- */
 .plans { display: grid; gap: 14px; margin-top: 52px; }
