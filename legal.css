@@ -1,0 +1,24 @@
+/* Apex Media Leads · legal.css · rev 2026-10-04 · loads after site.css */
+.legal { padding-block: clamp(48px, 7vw, 96px) clamp(64px, 9vw, 120px); }
+.legal__in { max-width: 760px; }
+.legal h1 { font-weight: 600; font-size: clamp(2.6rem, 6vw, 4.25rem); line-height: 1.04; letter-spacing: -.035em; margin: 16px 0 12px; }
+.legal__date { font-size: .875rem; color: var(--muted); }
+.legal__summary { margin: 32px 0 8px; border-radius: var(--r-xl); background: var(--surface); padding: 24px 26px 14px; }
+.legal__summary h2 { font-size: 1.125rem; font-weight: 600; letter-spacing: -.01em; }
+.legal__summary ul { margin-top: 10px; }
+.legal__summary li { padding: 9px 0 9px 30px; position: relative; color: var(--text); border-top: 1px solid var(--line); }
+.legal__summary li:first-child { border-top: 0; }
+.legal__summary li::before {
+  content: ""; position: absolute; left: 0; top: .78em; width: 20px; height: 20px; border-radius: 50%;
+  background: var(--ok-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.3l2.2 2.2 4.8-5' fill='none' stroke='%2317663A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/13px no-repeat;
+}
+.legal section { padding-top: 34px; }
+.legal section h2 { font-weight: 600; font-size: 1.5rem; line-height: 1.2; letter-spacing: -.02em; margin-bottom: 12px; padding-top: 22px; border-top: 1px solid var(--line); }
+.legal section h3 { font-weight: 600; font-size: 1.0625rem; margin: 18px 0 6px; }
+.legal p, .legal li { color: var(--text-2); }
+.legal p + p { margin-top: 12px; }
+.legal section ul { margin-top: 10px; }
+.legal section ul li { padding: 5px 0 5px 22px; position: relative; }
+.legal section ul li::before { content: ""; position: absolute; left: 4px; top: .95em; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+.legal a { text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.legal address { font-style: normal; margin-top: 12px; display: grid; gap: 6px; }
