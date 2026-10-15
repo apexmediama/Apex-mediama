@@ -8,7 +8,7 @@
      Settings. Edit these, nothing else.
      ------------------------------------------------------------ */
   var CONFIG = {
-    calendlyUrl: "https://calendly.com/yendryquintero808/15",
+    calendlyUrl: "https://calendly.com/apexmediagrowth/15",
     formEndpoint: "https://formspree.io/f/xqeyzkqd",
     phoneDisplay: "(870) 600-4285",
     metaPixelId: "1300463091913590",

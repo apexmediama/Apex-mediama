@@ -4,7 +4,7 @@
 (function () {
   "use strict";
   var AVA_ENDPOINT = "https://hook.us2.make.com/y76rmhc82gjsi9ylsnt7grqe7hi199th"; // Make: APEX GROWTH | Ava chat web
-  var CALENDLY = "https://calendly.com/yendryquintero808/15";
+  var CALENDLY = "https://calendly.com/apexmediagrowth/15";
   var EMAIL = "apexmediama@gmail.com";
   var MAX_USER_MSGS = 30, MAX_LEN = 600;
 
