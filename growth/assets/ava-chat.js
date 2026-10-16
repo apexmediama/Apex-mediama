@@ -26,6 +26,19 @@
       ai: "IA", disc: "Está hablando con una IA. Los mensajes se comparten con el equipo de Apex para ayudarle. No comparta contraseñas ni números de tarjeta." }
   }[lang];
 
+  // Página de Ava Starter ($197): saludo y botones rápidos propios
+  if (/\/starter\//.test(location.pathname)) {
+    if (lang === "es") {
+      T.hi = "¡Hola! Soy Ava. Puedo contestar las llamadas de su negocio 24/7 y mandarle un resumen por email. Pregúnteme cómo funciona o pídame un ejemplo.";
+      T.tease = "¿Quiere ver cómo contestaría en su negocio?";
+      T.quick = ["¿Cómo funciona?", "¿Qué pasa con mi número?", "Deme un ejemplo para mi negocio", "¿Qué no incluye?"];
+    } else {
+      T.hi = "Hi! I'm Ava. I can answer your business calls 24/7 and email you a summary. Ask me how it works or for an example.";
+      T.tease = "Want to see how I'd answer for your business?";
+      T.quick = ["How does it work?", "Do I keep my number?", "Show me an example for my business", "What's not included?"];
+    }
+  }
+
   var KEY = "ava_growth_v1";
   var state = { msgs: [], notified: false, sid: Math.random().toString(36).slice(2, 10), tease: false };
   try { var saved = JSON.parse(sessionStorage.getItem(KEY) || "null"); if (saved && saved.msgs) state = saved; } catch (e) {}
