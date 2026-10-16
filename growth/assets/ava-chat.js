@@ -27,7 +27,8 @@
   }[lang];
 
   // Página de Ava Starter ($197): saludo y botones rápidos propios
-  if (/\/starter\//.test(location.pathname)) {
+  var STARTER = /\/starter\//.test(location.pathname);
+  if (STARTER) {
     if (lang === "es") {
       T.hi = "¡Hola! Soy Ava. Puedo contestar las llamadas de su negocio 24/7 y mandarle un resumen por email. Pregúnteme cómo funciona o pídame un ejemplo.";
       T.tease = "¿Quiere ver cómo contestaría en su negocio?";
@@ -110,7 +111,9 @@
     if (on) { $m.appendChild(el("div", "ava-ty", "<i></i><i></i><i></i>")); $m.scrollTop = $m.scrollHeight; }
   }
   function transcript() {
-    return state.msgs.slice(-20).map(function (m) { return (m.r === "u" ? "Visitor: " : "Ava: ") + m.t; }).join("\n");
+    var lines = state.msgs.slice(-20).map(function (m) { return (m.r === "u" ? "Visitor: " : "Ava: ") + m.t; });
+    if (STARTER) lines.unshift("[Page: the visitor is on the Ava Starter page ($197/month phone answering).]");
+    return lines.join("\n");
   }
   function hasContact(s) { return /[\w.+-]+@[\w-]+\.[\w.]+/.test(s) || s.replace(/\D/g, "").length >= 10; }
 
