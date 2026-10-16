@@ -33,10 +33,14 @@
       T.hi = "¡Hola! Soy Ava. Puedo contestar las llamadas de su negocio 24/7 y mandarle un resumen por email. Pregúnteme cómo funciona o pídame un ejemplo.";
       T.tease = "¿Quiere ver cómo contestaría en su negocio?";
       T.quick = ["¿Cómo funciona?", "¿Qué pasa con mi número?", "Deme un ejemplo para mi negocio", "¿Qué no incluye?"];
+      T.exQ = "¡Claro! ¿Qué tipo de negocio tiene? Por ejemplo: plomería, salón, taller, limpieza.";
+      T.exAsk = "Deme un ejemplo de llamada para mi negocio, que es: ";
     } else {
       T.hi = "Hi! I'm Ava. I can answer your business calls 24/7 and email you a summary. Ask me how it works or for an example.";
       T.tease = "Want to see how I'd answer for your business?";
       T.quick = ["How does it work?", "Do I keep my number?", "Show me an example for my business", "What's not included?"];
+      T.exQ = "Sure! What kind of business do you have? For example: plumbing, salon, auto shop, cleaning.";
+      T.exAsk = "Show me an example call for my business, which is: ";
     }
   }
 
@@ -124,10 +128,16 @@
     state.msgs.push({ r: "u", t: text }); bubble(text, "me"); persist();
     var userCount = state.msgs.filter(function (m) { return m.r === "u"; }).length;
     if (userCount > MAX_USER_MSGS) { bubble(T.limit, "bot"); return; }
+    // Starter: "Deme un ejemplo..." sin decir el negocio → Ava pregunta cuál es aquí mismo, y la respuesta se manda como pedido de ejemplo
+    if (STARTER && /^(deme un ejemplo|show me an example)/i.test(text) && text.length < 45) {
+      state.exWait = true; state.msgs.push({ r: "a", t: T.exQ }); bubble(T.exQ, "bot"); persist(); $t.focus(); return;
+    }
+    var last = text;
+    if (STARTER && state.exWait) { state.exWait = false; last = T.exAsk + text; }
     var notify = !state.notified && hasContact(text);
     busy = true; $s.disabled = true; typing(true);
     var body = new URLSearchParams();
-    body.set("history", transcript()); body.set("last", text); body.set("lang", lang);
+    body.set("history", transcript()); body.set("last", last); body.set("lang", lang);
     body.set("page", location.pathname); body.set("sid", state.sid); body.set("notify", notify ? "1" : "0");
     var done = function (reply, ok) {
       typing(false); busy = false; $s.disabled = false;
