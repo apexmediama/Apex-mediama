@@ -1,6 +1,3 @@
 User-agent: *
 Allow: /
-Disallow: /thanks.html
-Disallow: /es/gracias.html
-
 Sitemap: https://apexmediama.com/sitemap.xml
