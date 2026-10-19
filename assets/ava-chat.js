@@ -26,6 +26,8 @@
       ai: "IA", disc: "Está hablando con una IA. Los mensajes se comparten con el equipo de Apex para ayudarle. No comparta contraseñas ni números de tarjeta." }
   }[lang];
 
+  // Página de después del pago (/starter/listo/): el cliente ya compró, no se le vende nada
+  if (/\/listo\//.test(location.pathname)) return;
   // Página de Ava Starter ($197): saludo y botones rápidos propios
   var STARTER = /\/starter\//.test(location.pathname);
   if (STARTER) {
@@ -54,7 +56,11 @@
 .ava-btn:focus-visible,.ava-x:focus-visible,.ava-q button:focus-visible,.ava-send:focus-visible{outline:2.5px solid #E2BC5F;outline-offset:2px}\
 .ava-av{width:34px;height:34px;border-radius:50%;background:#8C6A1C;display:grid;place-items:center;font:800 15px 'Schibsted Grotesk',system-ui,sans-serif;color:#fff;position:relative;flex:none}\
 .ava-av:after{content:'';position:absolute;right:-1px;bottom:-1px;width:10px;height:10px;border-radius:50%;background:#2BC37F;border:2px solid #11151C}\
-.ava-tease{position:fixed;right:18px;bottom:82px;z-index:9998;max-width:260px;background:#fff;color:#11151C;border:1px solid #E4E4E0;border-radius:14px 14px 4px 14px;padding:11px 14px;font:500 14px/1.4 'Hanken Grotesk',system-ui,sans-serif;box-shadow:0 14px 34px -14px rgba(17,21,28,.4);cursor:pointer}\
+.ava-tease{position:fixed;right:18px;bottom:82px;z-index:9998;max-width:280px;display:flex;align-items:flex-start;background:#fff;color:#11151C;border:1px solid #E4E4E0;border-radius:14px 14px 4px 14px;box-shadow:0 14px 34px -14px rgba(17,21,28,.4)}\
+.ava-tt{flex:1;min-width:0;background:transparent;border:0;text-align:left;padding:11px 2px 11px 14px;font:500 14px/1.4 'Hanken Grotesk',system-ui,sans-serif;color:#11151C;cursor:pointer}\
+.ava-tx{flex:none;background:transparent;border:0;color:#6B7280;width:30px;height:30px;margin:5px 5px 0 0;border-radius:8px;font-size:19px;line-height:1;cursor:pointer}\
+.ava-tx:hover{background:#F4F4F2;color:#11151C}\
+.ava-tt:focus-visible,.ava-tx:focus-visible{outline:2.5px solid #E2BC5F;outline-offset:1px}\
 .ava-panel{position:fixed;right:18px;bottom:18px;z-index:9999;width:380px;max-width:calc(100vw - 24px);height:min(600px,calc(100vh - 36px));background:#fff;border:1px solid #E4E4E0;border-radius:20px;box-shadow:0 30px 70px -24px rgba(17,21,28,.55);display:flex;flex-direction:column;overflow:hidden;font:400 15px/1.45 'Hanken Grotesk',system-ui,sans-serif;color:#11151C}\
 .ava-panel[hidden],.ava-btn[hidden],.ava-tease[hidden]{display:none!important}\
 .ava-h{display:flex;align-items:center;gap:11px;padding:14px 14px 14px 16px;background:#11151C;color:#fff}\
@@ -89,7 +95,8 @@
 
   var btn = el("button", "ava-btn"); btn.type = "button"; btn.setAttribute("aria-label", T.open);
   btn.innerHTML = '<span class="ava-av" aria-hidden="true">A</span><span class="t">' + esc(T.open) + "</span>";
-  var tease = el("div", "ava-tease"); tease.textContent = T.tease; tease.hidden = true; tease.setAttribute("role", "button"); tease.tabIndex = 0;
+  var tease = el("div", "ava-tease"); tease.hidden = true;
+  tease.innerHTML = '<button type="button" class="ava-tt">' + esc(T.tease) + '</button><button type="button" class="ava-tx" aria-label="' + esc(T.close) + '">×</button>';
   var panel = el("div", "ava-panel"); panel.hidden = true; panel.setAttribute("role", "dialog"); panel.setAttribute("aria-label", T.title);
   panel.innerHTML = '<div class="ava-h"><span class="ava-av" aria-hidden="true">A</span><div><b>' + esc(T.title) + "</b><span>" + esc(T.sub) +
     '</span></div><span class="ava-tag">' + T.ai + '</span><button type="button" class="ava-x" aria-label="' + esc(T.close) + '">×</button></div>' +
@@ -157,13 +164,18 @@
 
   function open() { panel.hidden = false; btn.hidden = true; tease.hidden = true; state.tease = true; persist(); renderAll(); setTimeout(function () { $t.focus(); }, 50); }
   function close() { panel.hidden = true; btn.hidden = false; btn.focus(); }
-  btn.onclick = open; tease.onclick = open;
-  tease.onkeydown = function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); } };
+  btn.onclick = open; tease.querySelector(".ava-tt").onclick = open;
+  tease.querySelector(".ava-tx").onclick = function () { tease.hidden = true; };
   panel.querySelector(".ava-x").onclick = close;
   panel.addEventListener("keydown", function (e) { if (e.key === "Escape") close(); });
   $f.addEventListener("submit", function (e) { e.preventDefault(); var v = $t.value; $t.value = ""; send(v); });
   $t.addEventListener("keydown", function (e) { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); $f.requestSubmit ? $f.requestSubmit() : $f.dispatchEvent(new Event("submit")); } });
   document.addEventListener("click", function (e) { var a = e.target.closest && e.target.closest("[data-ava-open]"); if (a) { e.preventDefault(); open(); } });
 
-  if (!state.tease) setTimeout(function () { if (panel.hidden) tease.hidden = false; }, 9000);
+  // La burbuja sale una sola vez por visita, a los 9 s, y se esconde sola a los 8 s (en el celular tapaba precios y botones)
+  if (!state.tease) setTimeout(function () {
+    if (!panel.hidden) return;
+    tease.hidden = false; state.tease = true; persist();
+    setTimeout(function () { tease.hidden = true; }, 8000);
+  }, 9000);
 })();
