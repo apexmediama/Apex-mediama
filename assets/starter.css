@@ -87,3 +87,27 @@ padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-
 .stbar span{font:500 14px/1.25 var(--f-mono)}
 .stbar .btn{padding:12px 16px;font-size:15px}
 @media (max-width:760px){body.stbar-on .stbar{display:flex}body.stbar-on .ava-btn{bottom:78px}body.stbar-on .ava-tease{bottom:142px}body.stbar-on footer.site{padding-bottom:110px}}
+.st-callbtn{display:none}
+@media (max-width:760px){
+.st-hero{display:flex;flex-direction:column;gap:0;padding-block:14px 40px}
+.st-hero>div:first-child{display:contents}
+.st-hero .eyebrow{order:1;font-size:12px}
+.st-hero h1{order:2;font-size:2.2rem;margin-top:10px;max-width:none}
+.st-hero .phone-wrap{order:3;margin-top:18px;gap:6px}
+.st-hero .cta-row{order:4;margin-top:18px;flex-direction:column;gap:10px}
+.st-hero .cta-row .btn{width:100%;justify-content:center;text-align:center}
+.st-hero .st-callbtn{display:flex;align-items:center;gap:8px;background:var(--ink);color:#fff;border-color:var(--ink)}
+.st-hero .st-chatbtn,.st-hero .st-call{display:none}
+.st-hero .st-price{order:5;margin-top:12px}
+.st-hero .lead{order:6;margin-top:14px;font-size:17px}
+.st-hero .trust{order:7;margin-top:16px}
+.st-hero .phone{max-width:340px;border-radius:30px;padding:8px}
+.st-hero .inbox{border-radius:24px;padding:10px 8px 12px;gap:8px}
+.st-hero .inbox .bar,.st-hero .mail .from{display:none}
+.st-hero .ring{padding:10px 12px}
+.st-hero .mail{padding:12px;gap:8px}
+.st-hero .st-callbtn span{white-space:nowrap}
+body:not(.stbar-on) .ava-btn,body:not(.stbar-on) .ava-tease{display:none!important}
+.st-hero .mail dl dt:nth-of-type(n+3),.st-hero .mail dl dd:nth-of-type(n+3){display:none}
+.st-hero .phone-note{font-size:12px}
+}
