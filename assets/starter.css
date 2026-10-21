@@ -3,6 +3,13 @@
 .st-hero h1{max-width:13ch}
 .st-price{font:500 15px/1.4 var(--f-mono);color:var(--ink2);margin-top:14px}
 .st-price b{color:var(--ink);font-weight:500}
+/* 20-oct: frase corta (solo celular), nota de la demo (solo celular) y "hable con una persona" */
+.st-sub,.st-demo-note{display:none}
+.st-human{margin:10px 0 0;font-size:16px;line-height:1.45;color:var(--ink2)}
+.st-hero .st-human+.trust{margin-top:18px}
+.st-human a{color:var(--ink);font-weight:700;white-space:nowrap;text-decoration-color:var(--good);padding-block:6px}
+.band .st-human{color:#D7DEEA;font-size:17px}
+.band .st-human a{color:#fff;text-decoration-color:var(--mark)}
 .st-call{margin-top:16px;background:var(--card);border:1px solid var(--rule);border-left:4px solid var(--good);border-radius:12px;padding:14px 18px;font-size:16.5px;display:flex;flex-wrap:wrap;gap:6px 10px;align-items:baseline}
 .st-call a{font:600 19px/1.2 var(--f-mono);letter-spacing:.01em;color:var(--ink);text-decoration-color:var(--good);white-space:nowrap}
 .band .st-call{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.16);border-left-color:var(--mark)}
@@ -89,25 +96,40 @@ padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-
 @media (max-width:760px){body.stbar-on .stbar{display:flex}body.stbar-on .ava-btn{bottom:78px}body.stbar-on .ava-tease{bottom:142px}body.stbar-on footer.site{padding-bottom:110px}}
 .st-callbtn{display:none}
 @media (max-width:760px){
-.st-hero{display:flex;flex-direction:column;gap:0;padding-block:14px 40px}
+/* 20-oct: en 375x700 entran título, frase, dibujo y los 2 botones (espacio más ajustado) */
+header.st-top .nav{min-height:56px}
+.st-hero{display:flex;flex-direction:column;gap:0;padding-block:10px 40px}
 .st-hero>div:first-child{display:contents}
 .st-hero .eyebrow{order:1;font-size:12px}
-.st-hero h1{order:2;font-size:2.2rem;margin-top:10px;max-width:none}
-.st-hero .phone-wrap{order:3;margin-top:18px;gap:6px}
-.st-hero .cta-row{order:4;margin-top:18px;flex-direction:column;gap:10px}
-.st-hero .cta-row .btn{width:100%;justify-content:center;text-align:center}
+.st-hero h1{order:2;font-size:2rem;margin-top:8px;max-width:none}
+.st-hero .st-sub{display:block;order:3;margin:8px 0 0;font-size:15px;line-height:1.4;color:var(--ink2)}
+.st-hero .phone-wrap{order:4;margin-top:12px;gap:4px}
+.st-hero .cta-row{order:5;margin-top:12px;flex-direction:column;gap:8px}
+.st-hero .cta-row .btn{width:100%;justify-content:center;text-align:center;padding-block:14px}
 .st-hero .st-callbtn{display:flex;align-items:center;gap:8px;background:var(--ink);color:#fff;border-color:var(--ink)}
 .st-hero .st-chatbtn,.st-hero .st-call{display:none}
-.st-hero .st-price{order:5;margin-top:12px}
-.st-hero .lead{order:6;margin-top:14px;font-size:17px}
-.st-hero .trust{order:7;margin-top:16px}
-.st-hero .phone{max-width:340px;border-radius:30px;padding:8px}
-.st-hero .inbox{border-radius:24px;padding:10px 8px 12px;gap:8px}
+.st-hero .st-demo-note{display:block;order:6;margin:6px 0 0;font-size:12.5px;line-height:1.35;color:var(--ink2);text-align:center}
+.st-hero .st-human{order:7;margin:10px 0 0;font-size:15px;text-align:center}
+.st-hero .st-price{order:8;margin-top:12px}
+.st-hero .lead{order:9;margin-top:14px;font-size:17px}
+.st-hero .trust{order:10;margin-top:16px}
+.st-hero .phone{max-width:340px;border-radius:28px;padding:7px}
+.st-hero .inbox{border-radius:22px;padding:8px 8px 10px;gap:7px}
+.st-hero .inbox>*{animation:none}
 .st-hero .inbox .bar,.st-hero .mail .from{display:none}
-.st-hero .ring{padding:10px 12px}
-.st-hero .mail{padding:12px;gap:8px}
+.st-hero .ring{padding:9px 12px}
+.st-hero .ring .dot{width:34px;height:34px}
+.st-hero .mail{padding:10px 12px;gap:6px}
 .st-hero .st-callbtn span{white-space:nowrap}
 body:not(.stbar-on) .ava-btn,body:not(.stbar-on) .ava-tease{display:none!important}
 .st-hero .mail dl dt:nth-of-type(n+3),.st-hero .mail dl dd:nth-of-type(n+3){display:none}
 .st-hero .phone-note{font-size:12px}
+}
+/* 20-oct: Android chico (360 de ancho): un poco más compacto para que el botón de pago entre en 360x640 */
+@media (max-width:370px){
+.st-hero .eyebrow{font-size:11px}
+.st-hero h1{font-size:1.85rem}
+.st-hero .st-sub{font-size:14px}
+.st-hero .mail dl{font-size:13px}
+.st-hero .cta-row .btn{padding-block:12px}
 }
