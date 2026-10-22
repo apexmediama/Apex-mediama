@@ -3,6 +3,7 @@
 .st-hero h1{max-width:13ch}
 .st-price{font:500 15px/1.4 var(--f-mono);color:var(--ink2);margin-top:14px}
 .st-price b{color:var(--ink);font-weight:500}
+.st-price a{color:inherit;text-decoration:underline;text-decoration-color:var(--rule);text-underline-offset:4px}  /* 21-oct: Clarity vio toques "muertos" en el precio; ahora baja a los planes */
 /* 20-oct: frase corta (solo celular), nota de la demo (solo celular) y "hable con una persona" */
 .st-sub,.st-demo-note{display:none}
 .st-human{margin:10px 0 0;font-size:16px;line-height:1.45;color:var(--ink2)}
