@@ -134,3 +134,22 @@ body:not(.stbar-on) .ava-btn,body:not(.stbar-on) .ava-tease{display:none!importa
 .st-hero .mail dl{font-size:13px}
 .st-hero .cta-row .btn{padding-block:12px}
 }
+/* 22-oct: "Ava te llama": formulario que dispara una llamada de demo al visitante */
+.demo{padding-block:44px 10px}
+.demo-box{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:30px;background:var(--card);border:2px solid var(--ink);border-radius:18px;padding:32px}
+.demo-text h2{margin-top:8px}
+.demo-text p{margin-top:12px;font-size:17px;line-height:1.5;color:var(--ink2)}
+.demo-text .trust{margin-top:16px}
+.demo-form{display:flex;flex-direction:column;gap:10px;position:relative}
+.demo-form label{display:flex;flex-direction:column;gap:4px;font:600 12.5px/1.3 var(--f-mono);letter-spacing:.02em;color:var(--ink2)}
+.demo-form input{font:500 16px/1.3 var(--f-body);padding:12px;border:1px solid var(--rule);border-radius:10px;background:var(--paper);color:var(--ink);min-width:0}
+.demo-form input:focus{outline:2px solid var(--accent);outline-offset:1px}
+.demo-form .btn{margin-top:6px;width:100%;justify-content:center}
+.demo-form .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.demo-msg{margin:2px 0 0;font-size:15px;line-height:1.4;min-height:1.4em;color:var(--good);font-weight:600}
+.demo-msg.err{color:var(--bad)}
+.demo-form.ok label,.demo-form.ok .btn{display:none}
+.demo-form.ok .demo-msg{font-size:18px}
+.demo-small{font-size:12.5px;line-height:1.4;color:var(--ink2);margin:0}
+.demo-small a{color:inherit}
+@media (max-width:760px){.demo{padding-block:8px 6px}.demo-box{grid-template-columns:1fr;padding:20px 16px;gap:16px}.demo-text p{font-size:15.5px}}
